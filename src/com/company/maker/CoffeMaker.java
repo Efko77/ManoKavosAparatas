@@ -1,5 +1,10 @@
 package com.company.maker;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class CoffeMaker {
 
 
@@ -90,11 +95,20 @@ public class CoffeMaker {
         boolean result = true;
         if (useCount >= MAX_USES) {
             result = false;
+            System.out.println("Truksta resursu");
+        }
+        if (waterAmount <= 0) {
+            result = false;
+            System.out.println("Truksta vandens");
+        }
+        if (sugarAmount <= 0) {
+            result = false;
+            System.out.println("Truksta cukraus");
+        }
+        if (beansAmount <= 0) {
+            result = false;
             System.out.println("Truksta pupeliu");
         }
-        if (waterAmount <= 0) return false;
-        if (sugarAmount <= 0) return false;
-        if (beansAmount <= 0) return false;
 
         return true;
     }
@@ -146,5 +160,42 @@ public class CoffeMaker {
         this.sugarAmount = value;
     }
 
+    public void issaugotiBusena() {
+        System.out.println("=========Maker status============");
+        System.out.println("Usages left:" + (MAX_USES - this.useCount));
+        System.out.println("is machine ready:" + isReady());
+        this.showProducts();
 
+
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter("tekstas1.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            writer.write("=========Maker status============ \n");
+            writer.write("Usages left:" + (MAX_USES - this.useCount) + "\n");
+            writer.write("is machine ready:" + isReady() + "\n");
+            writer.write("Sugar amount left:" + sugarAmount + "\n");
+            writer.write("Water amount left:" + waterAmount + "\n");
+            writer.write("Beans amount left:" + beansAmount + "\n");
+            writer.write("is machine ready:" + isReady() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
+
+
+
+
+
