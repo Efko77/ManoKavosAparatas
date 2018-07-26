@@ -5,20 +5,29 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CoffeMaker {
+ public class CoffeMaker {
 
+    private static CoffeMaker instance=null;
+
+    public static CoffeMaker getInstance(){
+        if (instance==null){
+            instance= new CoffeMaker();
+        }
+        return instance;
+    }
 
     public static final int MAX_USES = 5;
     private float sugarAmount;
     private float waterAmount;
     private float beansAmount;
+
     private int useCount;
 
 
-    public CoffeMaker() {
+    private CoffeMaker() {
     }
 
-    public CoffeMaker(float water, float sugar, float beans) {
+    private CoffeMaker(float water, float sugar, float beans) {
         waterAmount = water;
         sugarAmount = sugar;
         beansAmount = beans;

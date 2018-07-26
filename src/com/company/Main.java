@@ -39,7 +39,7 @@ public class Main {
     }
 
     private void dirbam() {
-        CoffeMaker aparatas = new CoffeMaker();
+        CoffeMaker aparatas = CoffeMaker.getInstance();
         Scanner sc = new Scanner(System.in);
         boolean arTesti = true;
         do {
