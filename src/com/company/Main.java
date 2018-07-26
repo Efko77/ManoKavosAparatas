@@ -14,6 +14,10 @@ public class Main {
     - pildant aparatą iš vartotojo pasiimti kiekius kiek papildys*/
 
 
+
+    /*Sukurti meniu punkta kuris leistu aparato busena issaugoti tekstineme faile. Panaudoti git branch ir github pull request*/
+
+
     public static void main(String[] args) {
         Main obj = new Main();
         obj.dirbam();
@@ -31,6 +35,7 @@ public class Main {
         System.out.println("1 - rodyti aparato busena");
         System.out.println("2 - plauti aparata");
         System.out.println("3 - pildyti produktus");
+        System.out.println("4-issaugoti aparato busena");
     }
 
     private void dirbam() {
@@ -43,18 +48,17 @@ public class Main {
             String pasirinkimas1 = sc.next();
 
             switch (pasirinkimas1) {
-                if (aparatas.isReady()) {
 
-                    case "black":
-                        aparatas.makeCoffe("black");
-                        break;
-                    case "latte":
-                        aparatas.makeCoffe("latte");
-                        break;
-                    case "espreso":
-                        aparatas.makeCoffe("espresso");
-                        break;
-                }
+
+                case "black":
+                    aparatas.makeCoffe("black");
+                    break;
+                case "latte":
+                    aparatas.makeCoffe("latte");
+                    break;
+                case "espreso":
+                    aparatas.makeCoffe("espresso");
+                    break;
             }
             showMenu2();
             int pasirinkimas2 = sc.nextInt();
@@ -64,6 +68,7 @@ public class Main {
                     break;
                 case 1:
                     aparatas.showStatus();
+                    //aparatas.issaugotiBusena();
                     break;
                 case 2:
                     aparatas.washMaker();
@@ -77,7 +82,10 @@ public class Main {
                     float beens = sc.nextFloat();
                     aparatas.fillProducts(water, sugar, beens);
                     break;
-
+                case 4:
+                    System.out.println("issaugomi duomenys");
+                    aparatas.issaugotiBusena();
+                    break;
             }
 
         } while (arTesti);
