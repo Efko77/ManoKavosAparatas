@@ -27,7 +27,7 @@ public class Main {
     }
 
     private void showMenu2() {
-        System.out.println("0 - baigti darba");
+        System.out.println("0 - baigti darba, o gal ir ne");
         System.out.println("1 - rodyti aparato busena");
         System.out.println("2 - plauti aparata");
         System.out.println("3 - pildyti produktus");
